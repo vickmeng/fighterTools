@@ -9,7 +9,7 @@ interface Props {
     disabled?:boolean;
   }[],
   value?: string|number,
-  setValue?: (value: string|number)=>void
+  setValue?: (value: string|number|undefined)=>void
 
 }
 
@@ -20,7 +20,7 @@ const RadioButton = (props:Props) => {
 
   return <>
     {
-      options.map((opt,index) => {
+      options.map((opt) => {
         const selected = opt.value === value;
 
         return <AtTag

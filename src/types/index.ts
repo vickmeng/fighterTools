@@ -1,6 +1,3 @@
-export type ConfigValueOrderType='single'|'combo'|'beat'
-
-
 export interface ConfigValue  {
   // 时间都是秒为单位
   trainTime: number;
@@ -11,7 +8,7 @@ export interface ConfigValue  {
   // countdown:boolean;//倒计时
   tenSecondsNotice:boolean;
   // 开启指令
-  order? :ConfigValueOrderType;
+  order? :boolean;
   // 指令间隔时间
   orderTime?: number;
 }

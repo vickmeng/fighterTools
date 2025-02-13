@@ -1,7 +1,8 @@
-import {ClockPlugin} from "./ClockPlugin";
 import Taro from "@tarojs/taro";
-import tenSeconds from './tenSeconds.mp3'
+import {ClockPlugin} from "./ClockPlugin";
 import {ConfigValue, TaskParams} from "../../../types";
+// @ts-ignore
+import tenSeconds from './tenSeconds.mp3'
 
 /**
  * 10秒 敲竹板
@@ -10,7 +11,6 @@ import {ConfigValue, TaskParams} from "../../../types";
 export class TenSecondsPlugin extends ClockPlugin {
   private audioContext;
 
-  private config:ConfigValue;
 
 
   private noticeTimes:number[] =[]
@@ -21,7 +21,6 @@ export class TenSecondsPlugin extends ClockPlugin {
 
   constructor(config:ConfigValue){
     super(config);
-    this.config = config;
 
     this.audioContext= Taro.createInnerAudioContext();
     this.audioContext.autoplay = false;

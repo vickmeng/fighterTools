@@ -1,6 +1,6 @@
 import {View} from "@tarojs/components";
 import {useMemo, useRef, useState} from 'react'
-import {navigateBack, useDidHide, useDidShow, useLoad, useRouter, useUnload} from "@tarojs/taro";
+import {navigateBack, useLoad, useRouter, useUnload} from "@tarojs/taro";
 import {ConfigValue} from "../../types";
 import FighterClock from "./utils/FighterClock";
 import {msToMinutesAndSeconds} from "./utils";
@@ -66,7 +66,7 @@ const Training = ()=>{
     }
 
 
-    if (config.order==='beat'){
+    if (config.order){
       plugins.push(new BeatOrderPlugin(config))
     }
 
@@ -173,13 +173,13 @@ const Training = ()=>{
           {isPause
             ? <View className='roundBtn at-icon at-icon-play' onClick={()=>{
                 setIsPause(false)
-                currentClock.onContinue()
+                currentClock!.onContinue()
 
                 }}
             />
             : <View className='roundBtn at-icon at-icon-pause' onClick={()=>{
                 setIsPause(true)
-                currentClock.onPause()
+                currentClock!.onPause()
               }}
             />
 

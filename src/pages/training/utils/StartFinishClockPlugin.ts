@@ -1,8 +1,10 @@
 import Taro from "@tarojs/taro";
 import {ClockPlugin} from "./ClockPlugin";
-import trainFinish from './trainFinish.wav'
-import trainStart from './trainStart.mp3'
 import {ConfigValue} from "../../../types";
+// @ts-ignore
+import trainStart from './trainStart.mp3'
+// @ts-ignore
+import trainFinish from './trainFinish.wav'
 
 export class StartFinishClockPlugin extends ClockPlugin {
 

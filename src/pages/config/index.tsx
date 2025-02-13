@@ -1,13 +1,12 @@
-import {useLoad,useUnload,useRouter,navigateTo} from '@tarojs/taro';
+import {navigateTo, useLoad, useRouter, useUnload} from '@tarojs/taro';
 import {useRef} from 'react'
 import {AtButton, AtDivider, AtInputNumber, AtList, AtListItem} from "taro-ui";
 import {Field, Group, useControlValue} from '@rx-form/react'
 import {FieldControl, GroupControl} from '@rx-form/core'
-import {ConfigValue, ConfigValueOrderType} from "../../types";
+import {ConfigValue} from "../../types";
 // import "taro-ui/dist/style/components/list.scss";
 // import "taro-ui/dist/style/components/button.scss";
 import './index.less';
-import RadioButton from "../../components/RadioButton";
 
 
 const Config = ()=>{
@@ -24,7 +23,7 @@ const Config = ()=>{
     'orderTime':[initValue.orderTime]
   })).current;
 
-  const orderValue = useControlValue<FieldControl<ConfigValueOrderType|undefined>>(formInstance.get('order'))
+  const orderValue = useControlValue<FieldControl<boolean|undefined>>(formInstance.get('order'))
 
   useLoad(()=>{
     console.log('useLoad================================')
@@ -84,22 +83,11 @@ const Config = ()=>{
             <AtDivider content='指令模式' />
 
 
-            <Field<ConfigValueOrderType|undefined> name='order'>{({value,setValue})=>{
+            <Field<boolean|undefined> name='order'>{({value,setValue})=>{
               return  <>
-                <AtListItem title='选择指令模式' />
-                <RadioButton
-                  value={value}
-                  setValue={(v)=>{
-                    setValue(v as ConfigValueOrderType);
-                    formInstance.get('orderTime').setValue(3)
-                  }}
-                  options={[
-                      {label:'不开启',value:undefined},
-                      {label:'仅节拍',value:'beat'},
-                      {label:'单拳',value:'single',disabled:true},
-                      {label:'组合',value:'combo',disabled:true},
-                    ]
-                  }
+                <AtListItem title='选择指令模式' isSwitch switchIsCheck={value} onSwitchChange={e=>{
+                  setValue(e.detail.check)
+                }}
                 />
               </>
             }}</Field>

@@ -1,7 +1,8 @@
-import {ClockPlugin} from "./ClockPlugin";
 import Taro from "@tarojs/taro";
-import countDown from './countdown.wav'
+import {ClockPlugin} from "./ClockPlugin";
 import {ConfigValue, TaskParams} from "../../../types";
+// @ts-ignore
+import countDown from './countdown.wav'
 
 /**
  * 10秒倒计时插件
@@ -10,7 +11,6 @@ import {ConfigValue, TaskParams} from "../../../types";
 export class CountdownPlugin extends ClockPlugin {
   private countDownAudioContext;
 
-  private config:ConfigValue;
 
 
   private noticeTimes:number[] =[]
@@ -21,7 +21,6 @@ export class CountdownPlugin extends ClockPlugin {
 
   constructor(config:ConfigValue){
     super(config);
-    this.config = config;
 
     this.countDownAudioContext= Taro.createInnerAudioContext();
     this.countDownAudioContext.autoplay = false;

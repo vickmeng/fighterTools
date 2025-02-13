@@ -1,25 +1,24 @@
+import {createInnerAudioContext} from "@tarojs/taro";
 import {ClockPlugin} from "./ClockPlugin";
 import {ConfigValue, TaskParams} from "../../../types";
-import Taro from "@tarojs/taro";
+// @ts-ignore
 import order from './order.mp3'
 
 export class BeatOrderPlugin extends ClockPlugin {
   private audioContext;
 
-  private config:ConfigValue;
 
   private noticeTimes:number[] =[]
 
   constructor(config:ConfigValue){
     super(config);
-    this.config = config;
 
-    this.audioContext= Taro.createInnerAudioContext();
+    this.audioContext= createInnerAudioContext();
     this.audioContext.autoplay = false;
     this.audioContext.src = order;
 
 
-    for (let i = config.orderTime * 1000; i <= config.trainTime * 1000; i += config.orderTime! * 1000) {
+    for (let i = config.orderTime! * 1000; i <= config.trainTime * 1000; i += config.orderTime! * 1000) {
       this.noticeTimes.push(i)
     }
   }
