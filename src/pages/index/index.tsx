@@ -61,11 +61,11 @@ const Index = ()=>{
       <LinkCard icon={order} color='#ff5963' onClick={()=>{
         toConfigPage({
           trainRounds:1,
-          trainTime:120 ,
+          trainTime:180 ,
           breakTime:30,
           tenSecondsNotice:true,
           order:true,
-          orderTime:3
+          orderTime:8
         })
       }}
       >

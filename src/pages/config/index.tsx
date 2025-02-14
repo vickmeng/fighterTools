@@ -1,12 +1,11 @@
-import {navigateTo, useLoad, useRouter, useUnload} from '@tarojs/taro';
+import {navigateTo, useRouter} from '@tarojs/taro';
 import {useRef} from 'react'
 import {AtButton, AtDivider, AtInputNumber, AtList, AtListItem} from "taro-ui";
 import {Field, Group, useControlValue} from '@rx-form/react'
 import {FieldControl, GroupControl} from '@rx-form/core'
 import {ConfigValue} from "../../types";
-// import "taro-ui/dist/style/components/list.scss";
-// import "taro-ui/dist/style/components/button.scss";
 import './index.less';
+import {View} from "@tarojs/components";
 
 
 const Config = ()=>{
@@ -25,16 +24,8 @@ const Config = ()=>{
 
   const orderValue = useControlValue<FieldControl<boolean|undefined>>(formInstance.get('order'))
 
-  useLoad(()=>{
-    console.log('useLoad================================')
-  })
+  return <View className='config-page'>
 
-  useUnload(()=>{
-    console.log('useUnload================================')
-  })
-
-
-  return <>
       <Group control={formInstance}>
         {()=>{
 
@@ -46,7 +37,7 @@ const Config = ()=>{
               return   <AtListItem title='组数'  extraText={<AtInputNumber
                 type='number'
                 min={1}
-                max={15}
+                max={20}
                 size='large'
                 value={value}
                 onChange={setValue}
@@ -86,7 +77,8 @@ const Config = ()=>{
             <Field<boolean|undefined> name='order'>{({value,setValue})=>{
               return  <>
                 <AtListItem title='选择指令模式' isSwitch switchIsCheck={value} onSwitchChange={e=>{
-                  setValue(e.detail.check)
+                  formInstance.get('orderTime').setValue(8);
+                  setValue(e.detail.value)
                 }}
                 />
               </>
@@ -97,8 +89,8 @@ const Config = ()=>{
                 return <AtListItem title='指令间隔(秒)' extraText={<AtInputNumber
                   type='number'
                   min={1}
-                  max={8}
-                  step={0.2}
+                  max={20}
+                  step={0.5}
                   size='large'
                   value={value}
                   onChange={setValue}
@@ -111,13 +103,22 @@ const Config = ()=>{
         }}
       </Group>
 
-      <AtButton className='submit-btn' type='primary' onClick={()=>{
-        navigateTo({
-          url: `/pages/training/index?value=${JSON.stringify(formInstance.value)}`
-        })
-      }}
-      >开始训练！！！</AtButton>
 
-  </>
+
+      <View className='submit-btn-wrapper'>
+        <View className='submit-btn'  onClick={()=>{
+          navigateTo({
+            url: `/pages/training/index?value=${JSON.stringify(formInstance.value)}`
+          })
+        }}
+        >开始</View>
+
+      </View>
+
+
+
+
+
+  </View>
 }
 export default Config
