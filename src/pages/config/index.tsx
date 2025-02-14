@@ -76,7 +76,7 @@ const Config = ()=>{
 
             <Field<boolean|undefined> name='order'>{({value,setValue})=>{
               return  <>
-                <AtListItem title='选择指令模式' isSwitch switchIsCheck={value} onSwitchChange={e=>{
+                <AtListItem title='开启指令' isSwitch switchIsCheck={value} onSwitchChange={e=>{
                   formInstance.get('orderTime').setValue(8);
                   setValue(e.detail.value)
                 }}

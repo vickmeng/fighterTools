@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro';
+import {navigateTo} from '@tarojs/taro';
 
 import {View} from '@tarojs/components'
 
@@ -8,10 +8,11 @@ import LinkCard from "../../components/LinkCard";
 import leitai from './../../assests/leitai.svg'
 import tabata from './../../assests/tabata.svg'
 import order from './../../assests/order.svg'
+import glove from './../../assests/glove.svg'
 
 const Index = ()=>{
   const toConfigPage = (params:ConfigValue)=>{
-    Taro.navigateTo({
+    navigateTo({
       url: `/pages/config/index?value=${JSON.stringify(params)}`
     })
   }
@@ -29,7 +30,7 @@ const Index = ()=>{
         })
       }}
       >
-        3 * 3
+        3 × 3
       </LinkCard>
 
       <LinkCard icon={leitai} color='#ff8000' onClick={()=>{
@@ -42,7 +43,7 @@ const Index = ()=>{
         })
       }}
       >
-        2 * 3
+        2 × 3
       </LinkCard>
 
       <LinkCard icon={tabata} color='#00cb7d' onClick={()=>{
@@ -70,6 +71,16 @@ const Index = ()=>{
       }}
       >
         指令训练
+      </LinkCard>
+
+
+      <LinkCard icon={glove} color='#FFBC52' onClick={()=>{
+        navigateTo({
+          url: `/pages/pairExercise/index`
+        })
+      }}
+      >
+        云实战
       </LinkCard>
     </View>
   )

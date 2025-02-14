@@ -3,6 +3,7 @@ export default defineAppConfig({
     'pages/index/index',
     'pages/config/index',
     'pages/training/index',
+    'pages/pairExercise/index',
   ],
   window: {
     backgroundTextStyle: 'light',
