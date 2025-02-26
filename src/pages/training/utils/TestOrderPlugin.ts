@@ -4,7 +4,7 @@ import {ConfigValue, TaskParams} from "../../../types";
 import {getBackgroundAudioManager} from '@tarojs/taro';
 
 // @ts-ignore
-import order from './order.mp3';
+import order from '../../../assests/order.mp3';
 import {onAudioNotice} from "./AudioNotice";
 
 const backgroundAudioManager = getBackgroundAudioManager()

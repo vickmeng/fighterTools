@@ -1,6 +1,6 @@
 import {View} from "@tarojs/components";
 import {useMemo, useRef, useState} from 'react'
-import {navigateBack, useLoad, useRouter, useUnload} from "@tarojs/taro";
+import {navigateBack, useLoad, useRouter, useUnload,setKeepScreenOn} from "@tarojs/taro";
 import {ConfigValue} from "../../types";
 import FighterClock from "./utils/FighterClock";
 import {msToMinutesAndSeconds} from "./utils";
@@ -8,7 +8,8 @@ import './index.less'
 import {StartFinishClockPlugin} from "./utils/StartFinishClockPlugin";
 import {ClockPlugin} from "./utils/ClockPlugin";
 import {TenSecondsPlugin} from "./utils/TenSecondsPlugin";
-import {BeatOrderPlugin} from "./utils/Plugins/BeatOrderPlugin";
+import {BeatOrderPlugin} from "./utils/BeatOrderPlugin";
+
 
 
 const Training = ()=>{
@@ -30,6 +31,11 @@ const Training = ()=>{
 
 
   useLoad(()=>{
+    setKeepScreenOn({
+      keepScreenOn: true,
+    })
+
+
     const prepareClock = new FighterClock({
       type:'prepare',
       totalTime: 3000,

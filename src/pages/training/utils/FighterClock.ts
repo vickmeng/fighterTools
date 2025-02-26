@@ -4,30 +4,6 @@ import {TaskParams} from "../../../types";
 
 
 
-// export interface TaskParams {
-//   /**
-//    * 当前时间
-//    */
-//   now:number;
-//   /**
-//    * 经过时间
-//    */
-//   passedTime:number;
-//   /**
-//    * 剩余时间
-//    */
-//   remainingTime:number;
-//   /**
-//    * 已完成
-//    */
-//   isFinish:boolean;
-//   /**
-//    * 进度
-//    */
-//   progress:number;
-// }
-
-
 interface Params {
   onTask?: (params:TaskParams) => void;
   totalTime:number

@@ -2,7 +2,7 @@ import Taro from "@tarojs/taro";
 import {ClockPlugin} from "./ClockPlugin";
 import {ConfigValue, TaskParams} from "../../../types";
 // @ts-ignore
-import tenSeconds from './tenSeconds.mp3'
+import tenSeconds from '../../../assests/tenSeconds.mp3'
 
 /**
  * 10秒 敲竹板

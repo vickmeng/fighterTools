@@ -2,9 +2,9 @@ import Taro from "@tarojs/taro";
 import {ClockPlugin} from "./ClockPlugin";
 import {ConfigValue} from "../../../types";
 // @ts-ignore
-import trainStart from './trainStart.mp3'
+import trainStart from '../../../assests/trainStart.mp3'
 // @ts-ignore
-import trainFinish from './trainFinish.wav'
+import trainFinish from '../../../assests/trainFinish.wav'
 
 export class StartFinishClockPlugin extends ClockPlugin {
 

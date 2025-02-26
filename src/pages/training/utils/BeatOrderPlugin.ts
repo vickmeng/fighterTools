@@ -1,12 +1,10 @@
 import {createInnerAudioContext} from "@tarojs/taro";
+
+// @ts-ignore
+import order from '../../../assests/order.mp3'
 import {ClockPlugin} from "./ClockPlugin";
 import {ConfigValue, TaskParams} from "../../../types";
-// @ts-ignore
-import order from './order.mp3'
 
-/**
- * @deprecated
- */
 export class BeatOrderPlugin extends ClockPlugin {
   private audioContext;
 
