@@ -87,8 +87,6 @@ class FighterClock {
 
       const taskPassedTime =  now - onPollTime;
 
-      // console.log(taskPassedTime)
-
       this.totalPassedTime += taskPassedTime
 
       const remainingTime =Math.max(this.params.totalTime - this.totalPassedTime, 0);
@@ -106,7 +104,7 @@ class FighterClock {
       }
 
       //
-      this.params.onTask(taskParams)
+      this.params?.onTask?.(taskParams)
 
       this.params.plugins?.forEach((plugin) => {
         plugin.onUpdate(taskParams)

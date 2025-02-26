@@ -8,7 +8,6 @@ import LinkCard from "../../components/LinkCard";
 import leitai from './../../assests/leitai.svg'
 import tabata from './../../assests/tabata.svg'
 import order from './../../assests/order.svg'
-import glove from './../../assests/glove.svg'
 
 const Index = ()=>{
   const toConfigPage = (params:ConfigValue)=>{
@@ -24,7 +23,7 @@ const Index = ()=>{
         toConfigPage({
           trainRounds:3,
           trainTime:180 ,
-          breakTime:30,
+          breakTime:60,
           order:undefined,
           tenSecondsNotice:true
         })
@@ -37,7 +36,7 @@ const Index = ()=>{
         toConfigPage({
           trainRounds:3,
           trainTime:120 ,
-          breakTime:30,
+          breakTime:60,
           order:undefined,
           tenSecondsNotice:true
         })
@@ -63,7 +62,7 @@ const Index = ()=>{
         toConfigPage({
           trainRounds:1,
           trainTime:180 ,
-          breakTime:30,
+          breakTime:60,
           tenSecondsNotice:true,
           order:true,
           orderTime:8
@@ -74,14 +73,14 @@ const Index = ()=>{
       </LinkCard>
 
 
-      <LinkCard icon={glove} color='#FFBC52' onClick={()=>{
-        navigateTo({
-          url: `/pages/pairExercise/index`
-        })
-      }}
-      >
-        云实战
-      </LinkCard>
+      {/*<LinkCard icon={glove} color='#FFBC52' onClick={()=>{*/}
+      {/*  navigateTo({*/}
+      {/*    url: `/pages/pairExercise/index`*/}
+      {/*  })*/}
+      {/*}}*/}
+      {/*>*/}
+      {/*  云实战*/}
+      {/*</LinkCard>*/}
     </View>
   )
 }

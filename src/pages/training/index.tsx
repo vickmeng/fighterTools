@@ -8,7 +8,7 @@ import './index.less'
 import {StartFinishClockPlugin} from "./utils/StartFinishClockPlugin";
 import {ClockPlugin} from "./utils/ClockPlugin";
 import {TenSecondsPlugin} from "./utils/TenSecondsPlugin";
-import {BeatOrderPlugin} from "./utils/BeatOrderPlugin";
+import {BeatOrderPlugin} from "./utils/Plugins/BeatOrderPlugin";
 
 
 const Training = ()=>{

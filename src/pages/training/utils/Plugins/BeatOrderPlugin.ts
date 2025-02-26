@@ -1,16 +1,12 @@
-import {ClockPlugin} from "./ClockPlugin";
-import {ConfigValue, TaskParams} from "../../../types";
 
-import {getBackgroundAudioManager} from '@tarojs/taro';
 
 // @ts-ignore
-import order from './order.mp3';
 import {onAudioNotice} from "./AudioNotice";
+import {ClockPlugin} from "../ClockPlugin";
+import {ConfigValue, TaskParams} from "../../../../types";
 
-const backgroundAudioManager = getBackgroundAudioManager()
 
-
-export class TestOrderPlugin extends ClockPlugin {
+export class BeatOrderPlugin extends ClockPlugin {
   private noticeTimes: number[] = []
 
   constructor(config: ConfigValue) {
@@ -19,8 +15,6 @@ export class TestOrderPlugin extends ClockPlugin {
     for (let i = config.orderTime! * 1000; i <= config.trainTime * 1000; i += config.orderTime! * 1000) {
       this.noticeTimes.push(i)
     }
-
-
   }
 
   onStart(): void {
@@ -33,18 +27,8 @@ export class TestOrderPlugin extends ClockPlugin {
       if (Math.abs(taskParams.passedTime - noticeTime) <= 10) {
 
         console.log('发起指令', noticeTime)
-
-
-        onAudioNotice(`http://ss8p8dty1.hn-bkt.clouddn.com/tenSeconds.mp3`)
-
-
-        backgroundAudioManager.src = `http://ss8p8dty1.hn-bkt.clouddn.com/tenSeconds.mp3`;
-
-        backgroundAudioManager.play();
-
+        onAudioNotice(`http://ss8p8dty1.hn-bkt.clouddn.com/order.mp3`)
         this.noticeTimes.shift();
-
-
       }
     }
   }

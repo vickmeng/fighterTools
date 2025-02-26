@@ -4,6 +4,9 @@ import {ConfigValue, TaskParams} from "../../../types";
 // @ts-ignore
 import order from './order.mp3'
 
+/**
+ * @deprecated
+ */
 export class BeatOrderPlugin extends ClockPlugin {
   private audioContext;
 

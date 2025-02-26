@@ -1,6 +1,7 @@
 import "taro-ui/dist/style/index.scss";
 import { Component, PropsWithChildren } from 'react'
 import './app.less'
+// import VConsole from 'vconsole';
 
 
 
@@ -24,9 +25,14 @@ Object.assign(global, {
 
 class App extends Component<PropsWithChildren>  {
 
-  componentDidMount () {}
+  componentDidMount () {
 
-  componentDidShow () {}
+  }
+
+  componentDidShow () {
+
+
+  }
 
   componentDidHide () {}
 
