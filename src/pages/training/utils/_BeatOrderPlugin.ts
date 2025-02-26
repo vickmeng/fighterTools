@@ -31,7 +31,7 @@ export class BeatOrderPlugin extends ClockPlugin {
 
     const noticeTime = this.noticeTimes[0]
     if(noticeTime){
-      if(Math.abs(taskParams.passedTime - noticeTime) <= 50 ){
+      if(Math.abs(taskParams.passedTime - noticeTime) <= 10 ){
 
         console.log('发起指令',noticeTime)
         this.audioContext.play();
