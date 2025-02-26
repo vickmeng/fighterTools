@@ -164,36 +164,36 @@ const Training = ()=>{
           </View>
         </View>
       : <View className='wrapper' style={{background:bg}}>
+          <View className='reminder'>训练中请不要锁屏</View>
           <View style={{fontSize:'40px',marginBottom:'20px'}}>{typeCn}</View>
           <View style={{fontSize:'80px',marginBottom:'30px'}}>
             {showRemainingTime}
           </View>
 
 
-        <View style={{display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'60px'}}>
-          <View className='roundBtn at-icon at-icon-arrow-left' style={{marginRight:'30px'}}  onClick={()=>{
-            navigateBack()
-          }}
-          />
+          <View style={{display:'flex',alignItems:'center',justifyContent:'center',marginBottom:'60px'}}>
+            <View className='roundBtn at-icon at-icon-arrow-left' style={{marginRight:'30px'}}  onClick={()=>{
+              navigateBack()
+            }}
+            />
 
-          {isPause
-            ? <View className='roundBtn at-icon at-icon-play' onClick={()=>{
-                setIsPause(false)
-                currentClock!.onContinue()
+            {isPause
+              ? <View className='roundBtn at-icon at-icon-play' onClick={()=>{
+                  setIsPause(false)
+                  currentClock!.onContinue()
 
+                  }}
+              />
+              : <View className='roundBtn at-icon at-icon-pause' onClick={()=>{
+                  setIsPause(true)
+                  currentClock!.onPause()
                 }}
-            />
-            : <View className='roundBtn at-icon at-icon-pause' onClick={()=>{
-                setIsPause(true)
-                currentClock!.onPause()
-              }}
-            />
+              />
 
-          }
+            }
+          </View>
         </View>
-      </View>
     }
-
   </>
 
 }
